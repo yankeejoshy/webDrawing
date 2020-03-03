@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        margin: 0; padding: 0;
+        mix-blend-mode: hue;
+      }
+      #container {
+        display: grid;
+        height: 100%;
+        grid-template-columns: 70% 30%;
+        grid-template-areas:
+          "background selection";
+      }
+      #vidContainer {
+        grid-area: background;
+        padding: 0; margin: 0;
+      }
+      #background {
+        width: 100%;
+        height: 100vh;
+        margin: auto;
+      }
+      #displayer {
+        position: fixed;
+        top: 20%;
+        left: 25%;
+        width: 30%;
+        height: 50vh;
+        opacity: 0.75;
+      }
+      #selectionBar {
+        grid-area: selection;
+        padding-left: 5px;
+        padding-right: 5px;
+        display: grid;
+        grid-template-columns: 50% 20% 30%;
+        grid-template-rows: 25% 25% 25% 25%;
+        z-index: 2;
+      }
+      .sidebarImg {
+        width: 90%;
+        grid-column: 1/2;
+        opacity: 0.7;
+      }
+      .colorDots {
+        width: 60%;
+        grid-column: 3/4;
+        object-fit: scale-down;
+      }
+      #black {
+        grid-row: 1/2;
+      }
+      #red {
+        grid-row: 2/3;
+      }
+      #green {
+        grid-row: 3/4;
+      }
+      #blue {
+        grid-row: 4/5;
+      }
+      .filter {
+        position: fixed;
+        top: 0; left: 0;
+        height: 100%; width: 100%;
+        opacity: 0.4;
+        visibility: hidden;
+        z-index: 0;
+      }
+      #redFilter {
+        background-color: red;
+      }
+      #greenFilter {
+        background-color: green;
+      }
+      #blueFilter {
+        background-color: blue;
+      }
+      #blackFilter {
+        background-color: black;
+      }
+    </style>
+    <title>Assignment 1</title>
+  </head>
+  <body>
+    <audio autoplay loop>
+      <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+    <div class="filter" id="redFilter"></div>
+    <div class="filter" id="blueFilter"></div>
+    <div class="filter" id="greenFilter"></div>
+    <div class="filter" id="blackFilter"></div>
+    <div id="container">
+      <div id="vidContainer">
+        <img id="displayer" src="catWave.gif">
+        <img id="background" src="background.png">
+      </div>
+      <div id="selectionBar">
+        <img class="sidebarImg" id="catWavePic" src="catWave.png">
+        <img class="sidebarImg" id="catLaserPic" src="catLaser.png">
+        <img class="sidebarImg" id="catKeysPic" src="catKeys.png">
+        <img class="sidebarImg" id="catShakePic" src="catShake.png">
+        <img class="colorDots" id="black" src="black.png">
+        <img class="colorDots" id="red" src="red.png">
+        <img class="colorDots" id="blue" src="blue.png">
+        <img class="colorDots" id="green" src="green.png">
+      </div>
+    </div>
+
+  <script src="script.js"></script>
+  </body>
+
+</html>
